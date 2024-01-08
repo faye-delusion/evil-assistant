@@ -1,0 +1,9 @@
+# created by virtualenv automatically
+/Scripts
+/Lib
+/Include
+config.json
+angels.json
+__pycache__
+badwords.txt
+pyvenv.cfg
