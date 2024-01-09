@@ -4,14 +4,14 @@ from discord.ext import commands
 import datetime
 import random
 
-class ButtonHandler(commands.Cog):
+class InteractionHandler(commands.Cog):
 
     def __init__(self,bot):
         self.bot = bot
 
     @commands.command()
     @commands.is_owner()
-    async def e(self, ctx):
+    async def button(self, ctx):
 
         view = discord.ui.View()
 
@@ -19,10 +19,30 @@ class ButtonHandler(commands.Cog):
 
         await ctx.send("e!", view=view)
 
+    @commands.command()
+    @commands.is_owner()
+    async def lethalcompanyrole(self,ctx):
+
+        view = discord.ui.View()
+
+        view.add_item(discord.ui.Button(emoji="➕", style=discord.ButtonStyle.green, custom_id="LCADD"))
+        view.add_item(discord.ui.Button(emoji="➖", style=discord.ButtonStyle.red, custom_id="LCRM"))
+
+        embed = discord.Embed(
+
+            title="Use buttons to add/remove role",
+            description=f"Role: {discord.utils.get(self.bot.get_guild(817475690499670066).roles, id=1189028560346824784).mention}\nDescription: LFG ping role for Lethal Company players."
+
+        )
+
+        await ctx.send(embed=embed, view=view)
+
     @commands.Cog.listener(name="on_interaction")
     async def button_pressed(self, interaction: discord.Interaction):
 
         if interaction.data['custom_id'] == "the_button":
+
+            # THE BUTTON
 
             view = discord.ui.View()
 
@@ -94,7 +114,41 @@ class ButtonHandler(commands.Cog):
 
             await interaction.response.send_message(content="Wrong button buddy :)", ephemeral=True)
 
+        elif interaction.data["custom_id"] == "LCADD":
+
+            role = discord.utils.get(interaction.guild.roles, id=1189028560346824784)
+
+            try:
+
+                await interaction.user.add_roles(role, reason="they WANTED that shit fr")
+
+            except:
+
+                await interaction.response.send_message(content="Something went wrong, role was not added.", ephemeral=True)
+
+            else:
+
+                await interaction.response.send_message(content="Added role.", ephemeral=True)
+
+
+        elif interaction.data["custom_id"] == "LCRM":
+
+            role = discord.utils.get(interaction.guild.roles, id=1189028560346824784)
+
+            try:
+
+                await interaction.user.remove_roles(role, reason="they WANTED that shit fr")
+
+            except:
+
+                await interaction.response.send_message(content="Something went wrong, role was not removed.", ephemeral=True)
+
+            else:
+
+                await interaction.response.send_message(content="Removed role.", ephemeral=True)
+
+
         
 
 async def setup(bot):
-    await bot.add_cog(ButtonHandler(bot))
+    await bot.add_cog(InteractionHandler(bot))
