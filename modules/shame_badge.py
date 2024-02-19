@@ -25,7 +25,11 @@ class BadgeOfShameHandler(commands.Cog):
                 "honkai: star rail",
                 "valorant",
                 "league of legends",
-                "overwatch 2"
+                "overwatch 2",
+                "osu!",
+                "world of warcraft",
+                "team fortress 2",
+                "world of tanks"
 
             ]
 
