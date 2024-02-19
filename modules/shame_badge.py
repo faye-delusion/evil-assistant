@@ -13,6 +13,8 @@ class BadgeOfShameHandler(commands.Cog):
 
         badge_of_shame = discord.utils.get(guild.roles, id=1193726381654298636)
 
+        if badge_of_shame in after.roles: return
+
         if after.bot: return
 
         current_activities = after.activities
