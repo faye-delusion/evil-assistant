@@ -24,7 +24,8 @@ class BadgeOfShameHandler(commands.Cog):
                 "genshin impact",
                 "honkai: star rail",
                 "valorant",
-                "league of legends"
+                "league of legends",
+                "overwatch 2"
 
             ]
 
@@ -36,7 +37,13 @@ class BadgeOfShameHandler(commands.Cog):
 
                 except:
 
-                    pass
+                    return
+                
+                else:
+
+                    channel = self.bot.get_guild(id=817475690558521353)
+
+                    await channel.send(embed=discord.Embed(title=f"{after.name} was given the BADGE OF SHAME!!!!!", description=f"caught this mf playing {activity.name}"))
 
 
 async def setup(bot):
