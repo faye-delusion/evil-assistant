@@ -40,6 +40,8 @@ class InteractionHandler(commands.Cog):
     @commands.Cog.listener(name="on_interaction")
     async def button_pressed(self, interaction: discord.Interaction):
 
+        if not interaction.type == discord.InteractionType.component: return
+        
         if interaction.data['custom_id'] == "the_button":
 
             # THE BUTTON

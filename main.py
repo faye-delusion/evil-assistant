@@ -22,6 +22,15 @@ async def on_ready():
             else:
                 print(f"loaded {file}")
 
+    try:
+        
+        synced = await bot.tree.sync()
+        print(f"Synced {len(synced)} commands\n{[synced[i] for i in range(0,len(synced))]}")
+
+    except Exception as e:
+
+        print(e)
+
 
 @bot.command()
 async def ping(ctx):
