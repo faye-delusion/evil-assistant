@@ -25,7 +25,7 @@ class Highlights(commands.Cog):
 
         output_channel = self.bot.get_channel(1209230611362091038)
 
-        pinned_message = await output_channel.send(content=f"{message.author.mention}:\n{message.content}\n{' '.join([message.attachments[i].url for i in range(0,len(message.attachments))])}")
+        pinned_message = await output_channel.send(content=f"{message.author.mention} ([Original Message]({message.jump_url})):\n{message.content}\n{' '.join([message.attachments[i].url for i in range(0,len(message.attachments))])}")
 
         await interaction.response.send_message(f"New pinned message added. [See Here]({pinned_message.jump_url})")
     
