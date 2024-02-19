@@ -41,7 +41,7 @@ class BadgeOfShameHandler(commands.Cog):
                 
                 else:
 
-                    channel = self.bot.get_guild(id=817475690558521353)
+                    channel = guild.get_channel(817475690558521353)
 
                     await channel.send(embed=discord.Embed(title=f"{after.name} was given the BADGE OF SHAME!!!!!", description=f"caught this mf playing {activity.name}"))
 
