@@ -11,6 +11,11 @@ class ReplyUser(commands.Cog):
     @commands.Cog.listener(name="on_message")
     async def reply(self, ctx):
 
+        # ignore message if author is a bot
+        if ctx.author.bot: return
+        # ignore message if in smiley channel
+        if ctx.channel.id == 966231964375994378: return
+        
         roll = random.randint(0, 100)
 
         if roll == 0:
@@ -32,7 +37,14 @@ class ReplyUser(commands.Cog):
                 "retard alert",
                 "im gonna get you",
                 "are u busy?",
-                "lethal company?"
+                "lethal company?",
+                "hop on",
+                "vc?",
+                "I Want You.",
+                "mnngh",
+                "...",
+                "cease",
+                "im gonna get you"
 
             ]
 
