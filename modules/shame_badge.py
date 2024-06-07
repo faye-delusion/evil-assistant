@@ -71,7 +71,7 @@ class BadgeOfShameHandler(commands.Cog):
 
                     channel = guild.get_channel(817475690558521353)
 
-                    await channel.send(embed=discord.Embed(title=f"{after.name} was given the BADGE OF SHAME!!!!!", description=f"caught this mf playing {activity.name}", colour=discord.Colour.red))
+                    await channel.send(embed=discord.Embed(title=f"{after.name} was given the BADGE OF SHAME!!!!!", description=f"caught this mf playing {activity.name}", colour=discord.Colour.red()))
 
             if activity.name.lower() in awesome_list:
 
@@ -89,7 +89,7 @@ class BadgeOfShameHandler(commands.Cog):
 
                     channel = guild.get_channel(817475690558521353)
 
-                    await channel.send(embed=discord.Embed(title=f"{after.name} was given the BADGE OF AWESOME!!!!!", description=f"i love u i love {activity.name}", colour=discord.Colour.green))
+                    await channel.send(embed=discord.Embed(title=f"{after.name} was given the BADGE OF AWESOME!!!!!", description=f"i love u i love {activity.name}", colour=discord.Colour.green()))
 
 
 async def setup(bot):
